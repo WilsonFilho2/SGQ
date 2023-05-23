@@ -1,0 +1,22 @@
+<!-- Esse site é onde os alunos de quimica III irão realizar o login -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form">
+        <h1>Login</h1>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <p><label for="name">Nome: </label><input type="text" name="name" id="name"></p>
+            <p><label for="password">Senha: </label><input type="password" name="password" id="password"></p>
+            <input type="submit" value="Login">
+        </form>
+        <a href="{% url 'cadastro' %}">Cadastro</a>
+    </div>
+</body>
+</html>

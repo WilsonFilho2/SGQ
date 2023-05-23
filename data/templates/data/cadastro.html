@@ -1,0 +1,22 @@
+<!-- Esse site é onde os alunos de quimica III irão se cadastrar -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form">
+        <h1>Cadastro</h1>
+        <form action="{% url 'cadastro' %}" method="post">
+            {% csrf_token %}
+            <p><label for="name">Nome: </label><input type="text" name="name" id="name"></p>
+            <p><label for="email">Email: </label><input type="email" name="email" id="email"></p>
+            <p><label for="password">Senha: </label><input type="password" name="password" id="password"></p>
+            <input type="submit" value="Finalizar">
+        </form>
+    </div>
+</body>
+</html>
