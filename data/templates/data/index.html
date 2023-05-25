@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,11 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGQ - Sistema de gereciamento quimico</title>
+    <link rel="stylesheet" href="{% static 'data/css/style.css' %}">
 </head>
 <body>
+    {% block body %}
     <div class="tudo">
-        <h1>Hello World</h1>
-        <a href="{% url 'logout' %}">logout</a>
+        <div class="top">
+            <header class="all-top"> <!--Flex-->
+                <div class="title">
+                        <h1>SGQ</h1>
+                        <h6>Sistema de Gereciamento Quimico</h6>
+                </div>
+                <nav class="options"> <!--Grid-->
+                    <ul class="options-ul">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <!--logout-->
+                        <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+                        <li><a href="">Dados</a></li>    
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <div class="mid">
+            <!-- Gráfico -->
+        </div>
+        <div class="bottom">
+            <!--Roda pé-->
+        </div>
     </div>
+    {% endblock %}
 </body>
 </html>

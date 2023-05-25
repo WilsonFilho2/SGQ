@@ -7,8 +7,6 @@ from django.contrib.auth import authenticate, login as django_login, logout as d
 
 # Create your views here.
 def index(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('login'))
     return render(request, 'data/index.html')
 
 def login(request):
