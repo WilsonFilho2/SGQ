@@ -48,3 +48,7 @@ def cadastro(request):
 def logout(request):
     django_logout(request)
     return HttpResponseRedirect(reverse('login'))
+
+
+def dados(request):
+    return render(request, 'data/dados.html')
