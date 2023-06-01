@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,17 +9,19 @@
         <link rel="stylesheet" href="{% static 'data/css/login.css' %}">
     </head>
     <body>
+        {% block body %}
         <div class="container">
             <h2>Login</h2>
 
-            <form action="{% url 'login' %}" method="post">
+            <form action="{% url 'login' %}" method="post" class="form">
+                {% csrf_token %}
                 <div class="input-field">
-                    <input type="text" name="nome" id="id_nome" placeholder="alguma coisa">
+                    <input type="text" name="name" id="id_nome" placeholder="alguma coisa">
                     <label for="nome">Nome:</label>
                 </div>
 
                 <div class="input-field">
-                    <input type="password" name="senha" id="id_senha" placeholder="alguma coisa">
+                    <input type="password" name="password" id="id_senha" placeholder="alguma coisa">
                     <label for="senha">Senha:</label>
                 </div>
 
@@ -32,11 +33,14 @@
                 <div class="button">
                     <input type="submit" value="Entrar">
                 </div>
+                <div class="link">
+                    <a href="{% url 'cadastro' %}">Fazer Cadastro</a>
+                </div>
             </form>
-            <br>
-            <div class="link">
-                <a href="{% url 'cadastro' %}">Fazer Cadastro</a>
+            <div class="img">
+                <img src="" alt="">
             </div>
         </div>
+        {% endblock %}
     </body>
 </html>

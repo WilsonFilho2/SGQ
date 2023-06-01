@@ -14,12 +14,15 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('name')
         password = request.POST.get('password')
+        email = request.POST.get('email')
 
-        user = authenticate(request, username = username, password = password)
+        user = authenticate(request, username = username, password = password, email=email)
 
         if user:
             django_login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            return render(request, 'data/index.html', {
+                'login': True,
+            })
         
         else:
             return HttpResponseRedirect(reverse('login'))
@@ -47,7 +50,9 @@ def cadastro(request):
 
 def logout(request):
     django_logout(request)
-    return HttpResponseRedirect(reverse('login'))
+    return render(request, 'data/index.html', {
+        'login': False
+    })
 
 
 def dados(request):
