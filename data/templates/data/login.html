@@ -1,22 +1,42 @@
-<!-- Esse site é onde os alunos de quimica III irão realizar o login -->
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="form">
-        <h1>Login</h1>
-        <form action="{% url 'login' %}" method="post">
-            {% csrf_token %}
-            <p><label for="name">Nome: </label><input type="text" name="name" id="name"></p>
-            <p><label for="password">Senha: </label><input type="password" name="password" id="password"></p>
-            <input type="submit" value="Login">
-        </form>
-        <a href="{% url 'cadastro' %}">Cadastro</a>
-    </div>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'data/css/login.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Login</h2>
+
+            <form action="{% url 'login' %}" method="post">
+                <div class="input-field">
+                    <input type="text" name="nome" id="id_nome" placeholder="alguma coisa">
+                    <label for="nome">Nome:</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" name="senha" id="id_senha" placeholder="alguma coisa">
+                    <label for="senha">Senha:</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="email" name="email" id="id_email" placeholder="alguma coisa">
+                    <label for="email">Email:</label>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Entrar">
+                </div>
+            </form>
+            <br>
+            <div class="link">
+                <a href="{% url 'cadastro' %}">Fazer Cadastro</a>
+            </div>
+        </div>
+    </body>
 </html>
