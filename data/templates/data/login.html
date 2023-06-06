@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,34 +11,34 @@
     <body>
         {% block body %}
         <div class="container">
-            <h2>Login</h2>
-
-            <form action="{% url 'login' %}" method="post" class="form">
-                {% csrf_token %}
-                <div class="input-field">
-                    <input type="text" name="name" id="id_nome" placeholder="alguma coisa">
-                    <label for="nome">Nome:</label>
+            <div class="all">
+                <form action="{% url 'login' %}" method="post" class="form">
+                    <h2>Login</h2>
+                    {% csrf_token %}
+                    <div class="inputs">
+                        <div class="input-field">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="name" id="id_nome" class="input">
+                        </div>
+                        <div class="input-field">
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="password" id="id_senha" class="input">
+                        </div>
+                        <div class="input-field">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="id_email" class="input">
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="Entrar">
+                        </div>
+                        <div class="link">
+                            <a href="{% url 'cadastro' %}">Fazer Cadastro</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="img">
+                    <img src="" alt="">
                 </div>
-
-                <div class="input-field">
-                    <input type="password" name="password" id="id_senha" placeholder="alguma coisa">
-                    <label for="senha">Senha:</label>
-                </div>
-
-                <div class="input-field">
-                    <input type="email" name="email" id="id_email" placeholder="alguma coisa">
-                    <label for="email">Email:</label>
-                </div>
-
-                <div class="button">
-                    <input type="submit" value="Entrar">
-                </div>
-                <div class="link">
-                    <a href="{% url 'cadastro' %}">Fazer Cadastro</a>
-                </div>
-            </form>
-            <div class="img">
-                <img src="" alt="">
             </div>
         </div>
         {% endblock %}
