@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,8 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dados </title>
+    <link rel="stylesheet" href="{% static 'data/css/dados.css' %}">
 </head>
 <body>
-    
+    {% block body %}
+        <div class="all">
+            <h1>Bem vindo</h1>
+            <h2>Aqui, você poderá colocar os dados do esperimento</h2>
+            <h2>CRUD</h2>
+        </div>
+    {% endblock %}
 </body>
 </html>
