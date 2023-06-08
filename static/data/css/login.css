@@ -72,6 +72,8 @@ body {
                         .all > .form > .inputs > .input-field > .input {
                             grid-row-start: 2;
                             font-size: 12px;
+                            border: none;
+                            border-bottom: 1px solid #000000;
                         }
 
                     .all > .form > .inputs > .button {
@@ -127,3 +129,9 @@ body {
                     background-position: center bottom;
                   }
             
+@media (max-height: 740px) {
+    body > .container > .all {
+        width: 60%;
+        height: 60%;
+    }
+}

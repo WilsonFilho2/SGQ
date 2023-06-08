@@ -16,7 +16,7 @@ def login(request):
         password = request.POST.get('password')
         email = request.POST.get('email')
 
-        user = authenticate(request, username = username, password = password, email=email)
+        user = authenticate(request, username = username, password = password)
 
         if user:
             django_login(request, user)
