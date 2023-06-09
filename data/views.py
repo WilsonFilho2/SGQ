@@ -3,10 +3,17 @@ from django.http import HttpResponseRedirect, request
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.contrib.auth.decorators import login_required
+from . import models
 
 
 # Create your views here.
 def index(request):
+    if request.user.is_authenticated:
+        return render(request, 'data/index.html', {
+            'login': True,
+        })
+    
     return render(request, 'data/index.html')
 
 def login(request):
@@ -54,6 +61,10 @@ def logout(request):
         'login': False
     })
 
+##########################################################################################################
 
+@login_required(login_url='/login')
 def dados(request):
-    return render(request, 'data/dados.html')
+    return render(request, 'data/dados.html', {
+        'login': True,
+    })

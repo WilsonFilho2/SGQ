@@ -5,16 +5,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Dados </title>
+    <title> SGQ - Dados </title>
     <link rel="stylesheet" href="{% static 'data/css/dados.css' %}">
 </head>
 <body>
     {% block body %}
-        <div class="all">
-            <h1>Bem vindo</h1>
-            <h2>Aqui, você poderá colocar os dados do esperimento</h2>
-            <h2>CRUD</h2>
+        <div class="tudo">
+            <div class="top">
+                <header class="all-top"> <!--Flex-->
+                    <div class="title">
+                        <h1>SGQ</h1>
+                        <h6>Sistema de Gereciamento Quimico</h6>
+                    </div>
+                    <nav class="options"> <!--Grid-->
+                        <ul class="options-ul">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            {% if login %}
+                                <li><a href="{% url 'logout' %}">Sair</a></li>
+                            {% else %}
+                                <li><a href="{% url 'login' %}">Entrar</a></li>
+                            {% endif %}
+                            <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+                            <li><a href="{% url 'dados' %}">Dados</a></li>    
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+            <div class="mid">
+                <main class="main">
+                    <div class="apresentacao">
+                        <h2>Olá, {{ request.user.username }}</h2>
+                        <p>Aqui, você poderá inserir, excluir e editar os dados</p>
+                    </div>
+                    <section class="center">
+                        <div class="info">
+                            <ul class="options">
+                                <li><input type="radio" name="decision" id="inserir"><label for="inserir">Inserir</label></li>
+                                <li><input type="radio" name="decision" id="excluir"><label for="excluir">Excluir</label></li>
+                                <li><input type="radio" name="decision" id="alterar"><label for="alterar">Alterar</label></li>
+                            </ul>
+                            <form action="" method="post" class="inserir" id="ins_f">
+                                {% csrf_token %}
+                                <div class="inputs">
+                                    Insira a concentração
+                                    Insira a temperatura
+                                </div>
+                            </form>
+                            <form action="" method="post" class="excluir" id="exc_f">
+                                {% csrf_token %}
+                                <div class="inputs">
+                                    Exclua uma informacao pelo id
+                                </div>
+                            </form>
+                            <form action="" method="post" class="alterar" id="alt_f">
+                                {% csrf_token %}
+                                <div class="inputs">
+                                    edite a concentracao
+                                    edite a temperatura
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            <div class="bottom"></div>
         </div>
+        <script src="{% static 'data/js/dados.js' %}"></script>
     {% endblock %}
 </body>
 </html>

@@ -21,9 +21,9 @@
                     <ul class="options-ul">
                         <li><a href="{% url 'index' %}">Home</a></li>
                         {% if login %}
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            <li><a href="{% url 'logout' %}">Sair</a></li>
                         {% else %}
-                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'login' %}">Entrar</a></li>
                         {% endif %}
                         <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
                         <li><a href="{% url 'dados' %}">Dados</a></li>    
@@ -33,6 +33,9 @@
         </div>
         <div class="mid">
             <!-- Gráfico -->
+            <div class="grafico">
+                <canvas id="canvas"></canvas>
+            </div>
         </div>
         <div class="bottom">
             <!--Roda pé-->
