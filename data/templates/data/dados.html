@@ -44,16 +44,20 @@
                                 <li><input type="radio" name="decision" id="excluir"><label for="excluir">Excluir</label></li>
                                 <li><input type="radio" name="decision" id="alterar"><label for="alterar">Alterar</label></li>
                             </ul>
-                            <form action="" method="post" class="inserir" id="ins_f">
+                            <form action="" method="post" class="inserir" id="ins_f" style="display: block">
                                 {% csrf_token %}
                                 <div class="inputs">
                                     <div class="input-label">
-                                        <label for="concentracao">Concentração</label>
-                                        <input type="text" name="" id="concentracao">
+                                        <label for="concentracao">Concentração[NaCl]: </label>
+                                        <div class="input">
+                                            <input type="number" name="" id="concentracao" step="0.1">
+                                        </div>
                                     </div>
                                     <div class="input-label">
-                                        <label for="temperatura">Temperatura</label>
-                                        <input type="text" name="" id="temperatura">
+                                        <label for="temperatura">Temperatura[ºC]: </label>
+                                        <div class="input">
+                                            <input type="number" name="" id="temperatura" step="0.1">
+                                        </div>
                                     </div>
                                     <div class="button">
                                         <input type="submit" value="Enviar Dados">

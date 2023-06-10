@@ -33,14 +33,16 @@
         </div>
         <div class="mid">
             <!-- Gráfico -->
-            <div class="grafico">
-                <canvas id="canvas"></canvas>
+            <div class="canvas">
+                <canvas id="myChart" style="border: 1px solid gainsboro;background-color: white;box-shadow: 3px 3px 10px rgba(0,0,0,0.1);"></canvas>
             </div>
         </div>
         <div class="bottom">
             <!--Roda pé-->
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'data/js/app.js' %}"></script>
     {% endblock %}
 </body>
 </html>

@@ -88,3 +88,17 @@ body {
                                 width: 100%;
                             }
                         
+/*********************************************************************/
+
+.canvas {
+    position: relative;
+    margin: auto;
+    height: 400px;
+    width: 800px;
+}
+
+    .canvas canvas {
+        border: 1px solid gainsboro;
+        background-color: white;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    }

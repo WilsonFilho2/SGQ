@@ -103,12 +103,100 @@ body {
 
                 body > .tudo > .mid > .main > .apresentacao {
                     width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    height: 15%;
                 }
 
                     body > .tudo > .mid > .main > .apresentacao > h2 {
-                        margin: 0;
+                        display: flex;
+                        align-items: center;
                     }
 
-                body > .tudo > .mid > .main > .center > .info > form {
-                    display: none;
+                    body > .tudo > .mid > .main > .apresentacao > p {
+                        display: flex;
+                        align-items: center;
+                    }
+
+
+                body > .tudo > .mid > .main > .center {
+                    width: 100%;
+                    height: 85%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
+
+                    body > .tudo > .mid > .main > .center > .info {
+                        display: grid;
+                        width: 60%;
+                        height: 75%;
+                        border: 1px solid #000;
+                        grid-template-rows: 1fr;
+                        grid-template-columns: 1fr 3fr;
+                    }
+
+                        body > .tudo > .mid > .main > .center > .info > .options {
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            grid-column-start: 1;
+                            flex-direction: column;
+                        }
+
+                        body > .tudo > .mid > .main > .center > .info > form {
+                            display: none;
+                            grid-column-start: 2;
+                        }
+
+                        body > .tudo > .mid > .main > .center > .info > form.inserir > .inputs {
+                            width: 100%;
+                            height: 100%;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr;
+                            grid-template-rows: 2fr 2fr 1fr;
+                        }
+
+                            .inputs > .input-label{
+                                grid-column-start: 1;
+                                grid-column-end: 4;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+                                grid-template-rows: 1fr 1fr 1fr;
+                            }
+
+                                .inputs > .input-label > label {
+                                    grid-column-start: 2;
+                                    grid-row-start: 2;
+                                    width: 170px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: end;
+                                }
+
+                                .inputs > .input-label .input{
+                                    grid-column-start: 3;
+                                    grid-column-end: 5;
+                                    grid-row-start: 2;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: end;
+
+                                }
+
+                                    .inputs > .input-label .input input{
+                                        width: 100%;
+                                        height: 100%;
+                                        height: 20px;
+                                    }
+
+                            .inputs > .button {
+                                grid-column-start: 2;
+                                grid-column-end: 3;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
