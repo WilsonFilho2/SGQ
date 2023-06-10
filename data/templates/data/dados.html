@@ -47,21 +47,30 @@
                             <form action="" method="post" class="inserir" id="ins_f">
                                 {% csrf_token %}
                                 <div class="inputs">
-                                    Insira a concentração
-                                    Insira a temperatura
+                                    <div class="input-label">
+                                        <label for="concentracao">Concentração</label>
+                                        <input type="text" name="" id="concentracao">
+                                    </div>
+                                    <div class="input-label">
+                                        <label for="temperatura">Temperatura</label>
+                                        <input type="text" name="" id="temperatura">
+                                    </div>
+                                    <div class="button">
+                                        <input type="submit" value="Enviar Dados">
+                                    </div>
                                 </div>
                             </form>
                             <form action="" method="post" class="excluir" id="exc_f">
                                 {% csrf_token %}
                                 <div class="inputs">
                                     Exclua uma informacao pelo id
+                                    <!--A ideia aqui é mostrar os esperimentos em uma lista, pedir pro aluno de quimica selecionar um e habilitar o botao de apagar-->
                                 </div>
                             </form>
                             <form action="" method="post" class="alterar" id="alt_f">
                                 {% csrf_token %}
                                 <div class="inputs">
-                                    edite a concentracao
-                                    edite a temperatura
+                                    <!--A ideia aqui é permitir que o aluno de quimica modifique os dados se for necessário-->
                                 </div>
                             </form>
                         </div>

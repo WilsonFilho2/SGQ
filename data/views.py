@@ -68,3 +68,12 @@ def dados(request):
     return render(request, 'data/dados.html', {
         'login': True,
     })
+
+def inserir(request):
+    return HttpResponseRedirect(reverse('dados'))
+
+def alterar(request):
+    return HttpResponseRedirect(reverse('dados'))
+
+def excluir(request):
+    return HttpResponseRedirect(reverse('dados'))
