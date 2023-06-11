@@ -92,14 +92,33 @@ def inserir(request):
     return HttpResponseRedirect(reverse('dados'))
 
 def alterar(request):
+    if request.method == "POST":
+
+        experimento_id = request.POST.get('id')
+        experimento = models.Experimento.objects.get(id = experimento_id)
+        nova_concentracao = request.POST.get('concentracao')
+        nova_temperatura = request.POST.get('temperatura')
+
+        if nova_concentracao == '':
+            nova_concentracao = experimento.concentracao
+        
+        if nova_temperatura == '':
+            nova_temperatura = experimento.temperatura
+
+        if request.user.is_authenticated:
+            experimento.concentracao = nova_concentracao
+            experimento.temperatura = nova_temperatura
+            experimento.save()
+
     return HttpResponseRedirect(reverse('dados'))
 
 def excluir(request):
     if request.method == "POST":
 
         experimento_id = request.POST.get('id')
-        print(experimento_id)
         experimento = models.Experimento.objects.get(id = experimento_id)
-        experimento.delete()
+
+        if request.user.is_authenticated:
+            experimento.delete()
 
     return HttpResponseRedirect(reverse('dados'))

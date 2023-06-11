@@ -67,19 +67,25 @@
                             <form action="{% url 'dados/excluir' %}" method="post" class="excluir" id="exc_f">
                                 {% csrf_token %}
                                 <div class="inputs">
-                                    <div class="view">
+                                    <select name="id" id="experimento">
                                         {% for experimento in experimentos %}
-                                            <p>{{ experimento }}</p>
+                                            <option value="{{ experimento.id }}">{{ experimento }}</option>
                                         {% endfor %}
-                                    </div>
-                                    <input type="number" name="id" id="id" placeholder="id do experimento">
+                                    </select>
                                     <input type="submit" value="Apagar">
                                 </div>
                             </form>
-                            <form action="" method="post" class="alterar" id="alt_f">
+                            <form action="{% url 'dados/alterar' %}" method="post" class="alterar" id="alt_f">
                                 {% csrf_token %}
                                 <div class="inputs">
-                                    
+                                    <select name="id" id="experimento">
+                                        {% for experimento in experimentos %}
+                                            <option value="{{ experimento.id }}">{{ experimento }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <input type="number" name="concentracao" id="concentracao" placeholder="concentracao">
+                                    <input type="number" name="temperatura" id="temperatura" placeholder="temperatura">
+                                    <input type="submit" value="Alterar">
                                 </div>
                             </form>
                         </div>
