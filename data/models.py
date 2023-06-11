@@ -7,10 +7,10 @@ class Experimento(models.Model):
    
    concentracao = models.FloatField()
    temperatura = models.FloatField()
-   usuario = models.ManyToManyField(User, related_name="experimentos", blank=True)
+   usuario = models.CharField(max_length=100, default='')
 
    def __str__(self):
-      return f"{self.concentracao} --> {self.temperatura}"
+      return f"{self.id} - {self.concentracao}mol --> {self.temperatura}ºC"
 
 
 

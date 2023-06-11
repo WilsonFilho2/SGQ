@@ -152,51 +152,55 @@ body {
                             grid-column-start: 2;
                         }
 
-                        body > .tudo > .mid > .main > .center > .info > form.inserir > .inputs {
-                            width: 100%;
-                            height: 100%;
-                            display: grid;
-                            grid-template-columns: 1fr 1fr 1fr;
-                            grid-template-rows: 2fr 2fr 1fr;
-                        }
-
-                            .inputs > .input-label{
-                                grid-column-start: 1;
-                                grid-column-end: 4;
+                            body > .tudo > .mid > .main > .center > .info > form.inserir > .inputs {
+                                width: 100%;
+                                height: 100%;
                                 display: grid;
-                                grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-                                grid-template-rows: 1fr 1fr 1fr;
+                                grid-template-columns: 1fr 1fr 1fr;
+                                grid-template-rows: 2fr 2fr 1fr;
                             }
 
-                                .inputs > .input-label > label {
-                                    grid-column-start: 2;
-                                    grid-row-start: 2;
-                                    width: 170px;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: end;
+                                form.inserir > .inputs > .input-label{
+                                    grid-column-start: 1;
+                                    grid-column-end: 4;
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+                                    grid-template-rows: 1fr 1fr 1fr;
                                 }
 
-                                .inputs > .input-label .input{
-                                    grid-column-start: 3;
-                                    grid-column-end: 5;
-                                    grid-row-start: 2;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: end;
-
-                                }
-
-                                    .inputs > .input-label .input input{
-                                        width: 100%;
-                                        height: 100%;
-                                        height: 20px;
+                                    form.inserir > .inputs > .input-label > label {
+                                        grid-column-start: 2;
+                                        grid-row-start: 2;
+                                        width: 170px;
+                                        display: flex;
+                                        justify-content: end;
+                                        align-items: end;
                                     }
 
-                            .inputs > .button {
-                                grid-column-start: 2;
-                                grid-column-end: 3;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                            }
+                                    form.inserir > .inputs > .input-label .input{
+                                        grid-column-start: 3;
+                                        grid-column-end: 5;
+                                        grid-row-start: 2;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: end;
+
+                                    }
+
+                                        form.inserir > .inputs > .input-label .input input{
+                                            width: 100%;
+                                            border: none;
+                                            border-bottom: 1px solid black;
+                                        }
+
+                                form.inserir > .inputs > .button {
+                                    grid-column-start: 2;
+                                    grid-column-end: 3;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+
+                        form.excluir > .inputs {
+
+                        }

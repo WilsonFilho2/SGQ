@@ -44,19 +44,19 @@
                                 <li><input type="radio" name="decision" id="excluir"><label for="excluir">Excluir</label></li>
                                 <li><input type="radio" name="decision" id="alterar"><label for="alterar">Alterar</label></li>
                             </ul>
-                            <form action="" method="post" class="inserir" id="ins_f" style="display: block">
+                            <form action="{% url 'dados/inserir' %}" method="post" class="inserir" id="ins_f" style="display: block">
                                 {% csrf_token %}
                                 <div class="inputs">
                                     <div class="input-label">
                                         <label for="concentracao">Concentração[NaCl]: </label>
                                         <div class="input">
-                                            <input type="number" name="" id="concentracao" step="0.1">
+                                            <input type="number" name="concentracao" id="concentracao" step="0.1">
                                         </div>
                                     </div>
                                     <div class="input-label">
                                         <label for="temperatura">Temperatura[ºC]: </label>
                                         <div class="input">
-                                            <input type="number" name="" id="temperatura" step="0.1">
+                                            <input type="number" name="temperatura" id="temperatura" step="0.1">
                                         </div>
                                     </div>
                                     <div class="button">
@@ -64,17 +64,22 @@
                                     </div>
                                 </div>
                             </form>
-                            <form action="" method="post" class="excluir" id="exc_f">
+                            <form action="{% url 'dados/excluir' %}" method="post" class="excluir" id="exc_f">
                                 {% csrf_token %}
                                 <div class="inputs">
-                                    Exclua uma informacao pelo id
-                                    <!--A ideia aqui é mostrar os esperimentos em uma lista, pedir pro aluno de quimica selecionar um e habilitar o botao de apagar-->
+                                    <div class="view">
+                                        {% for experimento in experimentos %}
+                                            <p>{{ experimento }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <input type="number" name="id" id="id" placeholder="id do experimento">
+                                    <input type="submit" value="Apagar">
                                 </div>
                             </form>
                             <form action="" method="post" class="alterar" id="alt_f">
                                 {% csrf_token %}
                                 <div class="inputs">
-                                    <!--A ideia aqui é permitir que o aluno de quimica modifique os dados se for necessário-->
+                                    
                                 </div>
                             </form>
                         </div>
