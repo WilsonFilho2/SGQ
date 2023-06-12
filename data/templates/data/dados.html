@@ -1,100 +1,69 @@
+{% extends "data/layout.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SGQ - Dados </title>
-    <link rel="stylesheet" href="{% static 'data/css/dados.css' %}">
-</head>
-<body>
-    {% block body %}
-        <div class="tudo">
-            <div class="top">
-                <header class="all-top"> <!--Flex-->
-                    <div class="title">
-                        <h1>SGQ</h1>
-                        <h6>Sistema de Gereciamento Quimico</h6>
-                    </div>
-                    <nav class="options"> <!--Grid-->
-                        <ul class="options-ul">
-                            <li><a href="{% url 'index' %}">Home</a></li>
-                            {% if login %}
-                                <li><a href="{% url 'logout' %}">Sair</a></li>
-                            {% else %}
-                                <li><a href="{% url 'login' %}">Entrar</a></li>
-                            {% endif %}
-                            <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
-                            <li><a href="{% url 'dados' %}">Dados</a></li>    
-                        </ul>
-                    </nav>
-                </header>
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'data/css/dados.css' %}">
+    <div class="mid">
+        <main class="main">
+            <div class="apresentacao">
+                <h2>Olá, {{ request.user.username }}</h2>
+                <p>Aqui, você poderá inserir, excluir e editar os dados</p>
             </div>
-            <div class="mid">
-                <main class="main">
-                    <div class="apresentacao">
-                        <h2>Olá, {{ request.user.username }}</h2>
-                        <p>Aqui, você poderá inserir, excluir e editar os dados</p>
-                    </div>
-                    <section class="center">
-                        <div class="info">
-                            <ul class="options">
-                                <li><input type="radio" name="decision" id="inserir"><label for="inserir">Inserir</label></li>
-                                <li><input type="radio" name="decision" id="excluir"><label for="excluir">Excluir</label></li>
-                                <li><input type="radio" name="decision" id="alterar"><label for="alterar">Alterar</label></li>
-                            </ul>
-                            <form action="{% url 'dados/inserir' %}" method="post" class="inserir" id="ins_f" style="display: block">
-                                {% csrf_token %}
-                                <div class="inputs">
-                                    <div class="input-label">
-                                        <label for="concentracao">Concentração[NaCl]: </label>
-                                        <div class="input">
-                                            <input type="number" name="concentracao" id="concentracao" step="0.1">
-                                        </div>
-                                    </div>
-                                    <div class="input-label">
-                                        <label for="temperatura">Temperatura[ºC]: </label>
-                                        <div class="input">
-                                            <input type="number" name="temperatura" id="temperatura" step="0.1">
-                                        </div>
-                                    </div>
-                                    <div class="button">
-                                        <input type="submit" value="Enviar Dados">
-                                    </div>
+            <section class="center">
+                <div class="info">
+                    <ul class="options">
+                        <li><input type="radio" name="decision" id="inserir"><label for="inserir">Inserir</label></li>
+                        <li><input type="radio" name="decision" id="excluir"><label for="excluir">Excluir</label></li>
+                        <li><input type="radio" name="decision" id="alterar"><label for="alterar">Alterar</label></li>
+                    </ul>
+                    <form action="{% url 'dados/inserir' %}" method="post" class="inserir" id="ins_f" style="display: block">
+                        {% csrf_token %}
+                        <div class="inputs">
+                            <div class="input-label">
+                                <label for="concentracao">Concentração[NaCl]: </label>
+                                <div class="input">
+                                    <input type="number" name="concentracao" id="concentracao" step="0.1">
                                 </div>
-                            </form>
-                            <form action="{% url 'dados/excluir' %}" method="post" class="excluir" id="exc_f">
-                                {% csrf_token %}
-                                <div class="inputs">
-                                    <select name="id" id="experimento">
-                                        {% for experimento in experimentos %}
-                                            <option value="{{ experimento.id }}">{{ experimento }}</option>
-                                        {% endfor %}
-                                    </select>
-                                    <input type="submit" value="Apagar">
+                            </div>
+                            <div class="input-label">
+                                <label for="temperatura">Temperatura[ºC]: </label>
+                                <div class="input">
+                                    <input type="number" name="temperatura" id="temperatura" step="0.1">
                                 </div>
-                            </form>
-                            <form action="{% url 'dados/alterar' %}" method="post" class="alterar" id="alt_f">
-                                {% csrf_token %}
-                                <div class="inputs">
-                                    <select name="id" id="experimento">
-                                        {% for experimento in experimentos %}
-                                            <option value="{{ experimento.id }}">{{ experimento }}</option>
-                                        {% endfor %}
-                                    </select>
-                                    <input type="number" name="concentracao" id="concentracao" placeholder="concentracao">
-                                    <input type="number" name="temperatura" id="temperatura" placeholder="temperatura">
-                                    <input type="submit" value="Alterar">
-                                </div>
-                            </form>
+                            </div>
+                            <div class="button">
+                                <input type="submit" value="Enviar Dados">
+                            </div>
                         </div>
-                    </section>
-                </main>
-            </div>
-            <div class="bottom"></div>
-        </div>
-        <script src="{% static 'data/js/dados.js' %}"></script>
-    {% endblock %}
-</body>
-</html>
+                    </form>
+                    <form action="{% url 'dados/excluir' %}" method="post" class="excluir" id="exc_f">
+                        {% csrf_token %}
+                        <div class="inputs">
+                            <select name="id" id="experimento">
+                                {% for experimento in experimentos %}
+                                    <option value="{{ experimento.id }}">{{ experimento }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="submit" value="Apagar">
+                        </div>
+                    </form>
+                    <form action="{% url 'dados/alterar' %}" method="post" class="alterar" id="alt_f">
+                        {% csrf_token %}
+                        <div class="inputs">
+                            <select name="id" id="experimento">
+                                {% for experimento in experimentos %}
+                                    <option value="{{ experimento.id }}">{{ experimento }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="number" name="concentracao" id="concentracao" placeholder="concentracao">
+                            <input type="number" name="temperatura" id="temperatura" placeholder="temperatura">
+                            <input type="submit" value="Alterar">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="bottom"></div>
+<script src="{% static 'data/js/dados.js' %}"></script>
+{% endblock %}

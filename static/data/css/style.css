@@ -16,16 +16,12 @@ body {
     margin: 0;
     padding: 0;
 }
-    body > .tudo {
-        width: 100%;
-        min-height: 100vh;
-    }
-        body > .tudo > .top {
+        body > .top {
             width: 100%;
             height: 10%;
             box-shadow: rgba(0, 0, 0, 0.205) 1px 1px 1px ;
         }
-            body > .tudo > .top > .all-top {
+            body > .top > .all-top {
                 width: 100%;
                 height: 100%;
                 display: flex;
@@ -34,7 +30,7 @@ body {
                 justify-content: space-between;
                 background-color: var(--color2);
             }
-                body > .tudo > .top > .all-top > .title {
+                body > .top > .all-top > .title {
                     height: 100%;
                     width: 25%;
                     display: flex;
@@ -42,15 +38,15 @@ body {
                     align-items: center;
                 }
                 
-                body > .tudo > .top > .all-top > .options {
+                body > .top > .all-top > .options {
                     height: 100%;
                     width: 75%;
                 }
-                    body > .tudo > .top > .all-top > .title > h1,
-                    body > .tudo > .top > .all-top > .title > h6 {
+                    body > .top > .all-top > .title > h1,
+                    body > .top > .all-top > .title > h6 {
                         color: var(--color6);
                     }
-                    body > .tudo > .top > .all-top > .options > .options-ul {
+                    body > .top > .all-top > .options > .options-ul {
                         width: 100%;
                         height: 100%;
                         display: grid;
@@ -60,20 +56,20 @@ body {
                         padding: 0;
                         margin: 0;
                     }
-                        body > .tudo > .top > .all-top > .options > .options-ul > li {
+                        body > .top > .all-top > .options > .options-ul > li {
                             display: flex;
                             flex-direction: row;
                             justify-content: center;
                             align-items: center;
                         }
 
-                        body > .tudo > .top > .all-top > .options > .options-ul > li > a {
+                        body > .top > .all-top > .options > .options-ul > li > a {
                             text-decoration: none;
                             color: var(--color6);
                             position: relative;
                         }
 
-                            body > .tudo > .top > .all-top > .options > .options-ul > li > a::before {
+                            body > .top > .all-top > .options > .options-ul > li > a::before {
                                 content: '';
                                 width: 0px;
                                 height: 1px;
@@ -84,7 +80,7 @@ body {
                                 transition: all 0.3s ease-in-out;
                             }
 
-                            body > .tudo > .top > .all-top > .options > .options-ul > li > a:hover::before {
+                            body > .top > .all-top > .options > .options-ul > li > a:hover::before {
                                 width: 100%;
                             }
                         
@@ -92,7 +88,7 @@ body {
 
 .canvas {
     position: relative;
-    margin: auto;
+    margin: 10% auto;
     height: 400px;
     width: 800px;
 }

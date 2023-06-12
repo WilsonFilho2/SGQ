@@ -1,48 +1,16 @@
+{% extends "data/layout.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGQ - Sistema de gereciamento quimico</title>
-    <link rel="stylesheet" href="{% static 'data/css/style.css' %}">
-</head>
-<body>
-    {% block body %}
-    <div class="tudo">
-        <div class="top">
-            <header class="all-top"> <!--Flex-->
-                <div class="title">
-                    <h1>SGQ</h1>
-                    <h6>Sistema de Gereciamento Quimico</h6>
-                </div>
-                <nav class="options"> <!--Grid-->
-                    <ul class="options-ul">
-                        <li><a href="{% url 'index' %}">Home</a></li>
-                        {% if login %}
-                            <li><a href="{% url 'logout' %}">Sair</a></li>
-                        {% else %}
-                            <li><a href="{% url 'login' %}">Entrar</a></li>
-                        {% endif %}
-                        <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
-                        <li><a href="{% url 'dados' %}">Dados</a></li>    
-                    </ul>
-                </nav>
-            </header>
-        </div>
+
+{% block body %}
         <div class="mid">
             <!-- Gráfico -->
             <div class="canvas">
-                <canvas id="myChart" style="border: 1px solid gainsboro;background-color: white;box-shadow: 3px 3px 10px rgba(0,0,0,0.1);"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
         <div class="bottom">
             <!--Roda pé-->
         </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'data/js/app.js' %}"></script>
-    {% endblock %}
-</body>
-</html>
+{% endblock %}

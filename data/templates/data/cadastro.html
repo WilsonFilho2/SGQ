@@ -1,16 +1,9 @@
 <!-- Esse site é onde os alunos de quimica III irão se cadastrar -->
+{% extends "data/layout.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGQ - Cadastro</title>
-    <link rel="stylesheet" href="{% static 'data/css/cadastro.css' %}">
-</head>
-<body>
-    {% block body %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'data/css/cadastro.css' %}">
     <div class="container">
         <div class="all">
             <form action="{% url 'cadastro' %}" method="post" class="form">
@@ -39,6 +32,4 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-</body>
-</html>
+{% endblock %}

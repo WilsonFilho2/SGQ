@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'data/css/style.css' %}">
+        <title>SGQ</title>
+    </head>
+    <body>
+        <div class="top">
+            <header class="all-top"> <!--Flex-->
+                <div class="title">
+                    <h1>SGQ</h1>
+                    <h6>Sistema de Gereciamento Quimico</h6>
+                </div>
+                <nav class="options"> <!--Grid-->
+                    <ul class="options-ul">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        {% if login %}
+                            <li><a href="{% url 'logout' %}">Sair</a></li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Entrar</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+                        <li><a href="{% url 'dados' %}">Dados</a></li>    
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
