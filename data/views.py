@@ -4,15 +4,28 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
-import json
 from . import models
 
+##########################################################################################################################
+
+def calc_experimento(request) -> list:
+    experimentos = list()
+    for experimento in models.Experimento.objects.all():
+        temporario = [experimento.concentracao, experimento.temperatura]
+        experimentos.append(temporario[:])
+
+    return experimentos
+
+
+##########################################################################################################################
 
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
+        experimentos = calc_experimento(request)
         return render(request, 'data/index.html', {
             'login': True,
+            'experimentos': experimentos,
         })
     
     return render(request, 'data/index.html')
@@ -52,7 +65,9 @@ def cadastro(request):
             return HttpResponseRedirect(reverse('index'))
         
         except:
-            return HttpResponseRedirect(reverse('login'))
+            user = authenticate(request, username=username, password=password)
+            django_login(request, user=user)
+            return HttpResponseRedirect(reverse('index'))
 
     return render(request, 'data/cadastro.html')
 
@@ -123,3 +138,4 @@ def excluir(request):
             experimento.delete()
 
     return HttpResponseRedirect(reverse('dados'))
+

@@ -10,7 +10,7 @@ class Experimento(models.Model):
    usuario = models.CharField(max_length=100, default='')
 
    def __str__(self):
-      return f"{self.id} - {self.concentracao}mol --> {self.temperatura}ºC"
+      return f"{self.concentracao}mol ->{self.temperatura}ºC"
 
 
 

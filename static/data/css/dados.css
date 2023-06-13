@@ -16,16 +16,16 @@ body {
     margin: 0;
     padding: 0;
 }
-    body > .tudo {
+    body >  {
         width: 100%;
         min-height: 100vh;
     }
-        body > .tudo > .top {
+        body > .top {
             width: 100%;
             height: 10%;
             box-shadow: rgba(0, 0, 0, 0.205) 1px 1px 1px ;
         }
-            body > .tudo > .top > .all-top {
+            body > .top > .all-top {
                 width: 100%;
                 height: 100%;
                 display: flex;
@@ -34,7 +34,7 @@ body {
                 justify-content: space-between;
                 background-color: var(--color2);
             }
-                body > .tudo > .top > .all-top > .title {
+                body > .top > .all-top > .title {
                     height: 100%;
                     width: 25%;
                     display: flex;
@@ -42,15 +42,15 @@ body {
                     align-items: center;
                 }
                 
-                body > .tudo > .top > .all-top > .options {
+                body > .top > .all-top > .options {
                     height: 100%;
                     width: 75%;
                 }
-                    body > .tudo > .top > .all-top > .title > h1,
-                    body > .tudo > .top > .all-top > .title > h6 {
+                    body > .top > .all-top > .title > h1,
+                    body > .top > .all-top > .title > h6 {
                         color: var(--color6);
                     }
-                    body > .tudo > .top > .all-top > .options > .options-ul {
+                    body > .top > .all-top > .options > .options-ul {
                         width: 100%;
                         height: 100%;
                         display: grid;
@@ -60,20 +60,20 @@ body {
                         padding: 0;
                         margin: 0;
                     }
-                        body > .tudo > .top > .all-top > .options > .options-ul > li {
+                        body > .top > .all-top > .options > .options-ul > li {
                             display: flex;
                             flex-direction: row;
                             justify-content: center;
                             align-items: center;
                         }
 
-                        body > .tudo > .top > .all-top > .options > .options-ul > li > a {
+                        body > .top > .all-top > .options > .options-ul > li > a {
                             text-decoration: none;
                             color: var(--color6);
                             position: relative;
                         }
 
-                            body > .tudo > .top > .all-top > .options > .options-ul > li > a::before {
+                            body > .top > .all-top > .options > .options-ul > li > a::before {
                                 content: '';
                                 width: 0px;
                                 height: 1px;
@@ -84,42 +84,42 @@ body {
                                 transition: all 0.3s ease-in-out;
                             }
 
-                            body > .tudo > .top > .all-top > .options > .options-ul > li > a:hover::before {
+                            body > .top > .all-top > .options > .options-ul > li > a:hover::before {
                                 width: 100%;
                             }
                 
 
 /**************************************************************************/
 
-        body > .tudo > .mid {
+        body > .mid {
             width: 100vw;
             height: 80vh;
         }
 
-            body > .tudo > .mid > .main {
+            body > .mid > .main {
                 width: 100%;
                 height: 100%;
             }
 
-                body > .tudo > .mid > .main > .apresentacao {
+                body > .mid > .main > .apresentacao {
                     width: 100%;
                     display: flex;
                     justify-content: space-evenly;
                     height: 15%;
                 }
 
-                    body > .tudo > .mid > .main > .apresentacao > h2 {
+                    body > .mid > .main > .apresentacao > h2 {
                         display: flex;
                         align-items: center;
                     }
 
-                    body > .tudo > .mid > .main > .apresentacao > p {
+                    body > .mid > .main > .apresentacao > p {
                         display: flex;
                         align-items: center;
                     }
 
 
-                body > .tudo > .mid > .main > .center {
+                body > .mid > .main > .center {
                     width: 100%;
                     height: 85%;
                     display: flex;
@@ -127,7 +127,7 @@ body {
                     justify-content: center;
                 }
 
-                    body > .tudo > .mid > .main > .center > .info {
+                    body > .mid > .main > .center > .info {
                         display: grid;
                         width: 60%;
                         height: 75%;
@@ -136,7 +136,7 @@ body {
                         grid-template-columns: 1fr 3fr;
                     }
 
-                        body > .tudo > .mid > .main > .center > .info > .options {
+                        body > .mid > .main > .center > .info > .options {
                             list-style: none;
                             padding: 0;
                             margin: 0;
@@ -147,12 +147,12 @@ body {
                             flex-direction: column;
                         }
 
-                        body > .tudo > .mid > .main > .center > .info > form {
+                        body > .mid > .main > .center > .info > form {
                             display: none;
                             grid-column-start: 2;
                         }
 
-                            body > .tudo > .mid > .main > .center > .info > form.inserir > .inputs {
+                            body > .mid > .main > .center > .info > form.inserir > .inputs {
                                 width: 100%;
                                 height: 100%;
                                 display: grid;
@@ -200,7 +200,3 @@ body {
                                     justify-content: center;
                                     align-items: center;
                                 }
-
-                        form.excluir > .inputs {
-
-                        }
