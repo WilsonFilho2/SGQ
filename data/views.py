@@ -21,14 +21,18 @@ def calc_experimento(request) -> list:
 
 # Create your views here.
 def index(request):
+    experimentos = calc_experimento(request)
+
     if request.user.is_authenticated:
-        experimentos = calc_experimento(request)
         return render(request, 'data/index.html', {
             'login': True,
             'experimentos': experimentos,
         })
     
-    return render(request, 'data/index.html')
+    return render(request, 'data/index.html', {
+        'login': False,
+        'experimentos': experimentos,
+    })
 
 def login(request):
 
@@ -41,9 +45,8 @@ def login(request):
 
         if user:
             django_login(request, user)
-            return render(request, 'data/index.html', {
-                'login': True,
-            })
+            login = True
+            return HttpResponseRedirect(reverse('index'))
         
         else:
             return HttpResponseRedirect(reverse('login'))
@@ -73,9 +76,7 @@ def cadastro(request):
 
 def logout(request):
     django_logout(request)
-    return render(request, 'data/index.html', {
-        'login': False
-    })
+    return HttpResponseRedirect(reverse('index'))
 
 ##########################################################################################################
 

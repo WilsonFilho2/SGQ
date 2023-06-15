@@ -1,35 +1,40 @@
-function XeY(lista_exp) {
+function XeY(lista_exp) { // Funciona
   let pontos = [];
 
   lista_exp.forEach(experimento => {
-    let ponto = {x: experimento[0], y: experimento[1]};
-    pontos.push(ponto);
+    pontos.push({x: experimento[0], y: 100-experimento[1]});
   });
 
   return pontos;
 
 };
 
-function Y(lista_exp) {
-  let temperatura = [];
+function X(lista_exp) { // Talvez Funcione
+  let concentracao = [];
 
   lista_exp.forEach(experimento => {
-    temperatura.push = experimento[1];
+    concentracao.push(experimento[0]);
   });
+  console.log(concentracao)
 
-  return temperatura;
+  return concentracao;
+
 };
 
-function X_Kraul(lista_exp) { // não tá pronto
+function Y_Kraul(lista_exp) { // não tá pronto
+  const K_raul = 0.52
+
   let lista = [];
 
   lista_exp.forEach(experimento => {
-    lista.push = experimento[0];
+    lista.push(experimento[0] * K_raul);
   });
 
+  console.log(lista);
   return lista;
 
 };
+
 
 // y = K * concentracao
 
@@ -50,17 +55,17 @@ const ctx = document.getElementById('myChart');
       {
         type:'line',
         label:'K de Raul',
-        data: [2,4,7,9,10,11], // Valores de x para linha1
+        data: Y_Kraul(lista_exp), // Valores de x para linha1
       },
 
       // line of Raul
       {
         type:'line',
         label:'K Ótimo',
-        //data:[3,5,6,8,9,10] // Valores de x para linha2
+        // data:[3,5,6,8,9,10] // Valores de x para linha2
       }],
 
-      labels: Y(lista_exp), // Valores de y
+      labels: X(lista_exp) // Valores de y
     },
 
     // Usado para algumas configs.
