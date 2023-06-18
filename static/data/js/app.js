@@ -5,6 +5,7 @@ function pontos(lista_exp) {
   lista_exp.forEach(exp => { // [[]] -> [{}]
     exps.push({x: exp[0], y: exp[1]});
   });
+
   return exps;
 };
 
@@ -19,17 +20,16 @@ function eixo_x(lista_exp) {
 function dados_Kraoult(lista_exp) {
   const K_raul = 0.52;
   let dados = new Array();
-  lista_exp.forEach(y => { //[[x, y], [x, y]] -> y(temperatura) = K(0,52) * x(mols)
-    dados.push(K_raul * y[0]);
+  lista_exp.forEach(x => { //[[x, y], [x, y]] -> y(temperatura) = K(0,52) * x(mols)
+    dados.push(K_raul * x[0]);
   });
   return dados;
 };
 
-function Regressao(lista_exp, k_real) {
+function dados_Regressao(coefs_exp) {
   let dados = new Array();
-  const K_real = 0.89; // valor nao real
-  lista_exp.forEach(y => {
-    dados.push(K_real * y[0]);
+  lista_exp.forEach(x => {
+    dados.push(coefs_exp[0] + coefs_exp[1]*x[0]);
   });
   return dados;
 };
@@ -42,23 +42,23 @@ const ctx = document.getElementById('myChart');
       // Dados da experiencia
       {
         type: 'scatter',
-        label: 'Experimentos',
+        label: 'Experiments',
         data: pontos(lista_exp), // Pode ser usado dessa forma: [{x:valor,y:valor},{x:valor,y:valor},...]
         borderWidth: 1
-      },
-
-      // linear regression
-      {
-        type:'line',
-        label:'K de Raul',
-        data: dados_Kraoult(lista_exp), // Valores de x para linha1
       },
 
       // line of Raul
       {
         type:'line',
-        label:'K Ótimo',
-        //data: Regressao(lista_exp, 9), // Valores de x para linha2
+        label:'Line Raoult',
+        data: dados_Kraoult(lista_exp), // Valores de x para linha1
+      },
+
+      // linear regression
+      {
+        type:'line',
+        label:'Line good',
+        data: dados_Regressao(coefs_exp), // Valores de x para linha2
       }],
 
       labels: eixo_x(lista_exp), // Valores de y

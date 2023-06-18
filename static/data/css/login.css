@@ -82,8 +82,8 @@ body {
                         align-items: center;
                     }
                         .all > .form > .inputs > .button > input[type="submit"] {
-                            width: 50%;
-                            height: 50%;
+                            width: 30%;
+                            height: 30%;
                         }
 
                     .all > .form > .inputs > .link {
