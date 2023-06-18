@@ -98,3 +98,12 @@ body {
         background-color: white;
         box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
     }
+
+@media (max-width: 1400px) and (max-height: 800px) {
+    .canvas {
+        position: relative;
+        margin: 5% auto;
+        height: 350px;
+        width: 700px;
+    }
+}

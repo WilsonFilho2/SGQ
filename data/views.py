@@ -5,8 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 from . import models
+from .regressao import estimate_coef, plot_regression_line
 
 ##########################################################################################################################
+
+def k_real():
+    experimentos = models.Experimento.objects.all() # todos os experimentos
+    
 
 def calc_experimento(request) -> list:
     experimentos = list()
