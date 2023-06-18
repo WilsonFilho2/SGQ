@@ -32,6 +32,7 @@ def index(request):
     experimentos = experiments()
     coefs = coefficients()
 
+    print(experimentos)
     print(coefs)
 
     if request.user.is_authenticated:

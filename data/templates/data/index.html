@@ -7,13 +7,34 @@
             <div class="canvas">
                 <canvas id="myChart"></canvas>
             </div>
+            <div class="infos">
+                <table class="table">
+                    <tbody id="table">
+                        <tr>
+                            <th>Concentração</th>
+                            <th>Temperatura</th>
+                        </tr>
+                        {% for experimento in experimentos %}
+                            <tr>
+                                <td>{{ experimento.0 }}mol</td>
+                                <td>{{ experimento.1 }}ºC</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="adicionais">
+                    <p>K de Raul: 0.52</p>
+                    <p>K real: {{ coeficientes.1 }}</p>
+                </div>
+            </div>
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
+    <script type="">
         let lista_exp = {{ experimentos }};
         let coefs_exp = {{ coeficientes }};
     </script>
     <script src="{% static 'data/js/app.js' %}"></script>
+    <script src="{% static 'data/js/script.js' %}"></script>
 {% endblock %}

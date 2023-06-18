@@ -21,7 +21,7 @@ function dados_Kraoult(lista_exp) {
   const K_raul = 0.52;
   let dados = new Array();
   lista_exp.forEach(x => { //[[x, y], [x, y]] -> y(temperatura) = K(0,52) * x(mols)
-    dados.push(K_raul * x[0]);
+    dados.push(coefs_exp[0] + K_raul * x[0]);
   });
   return dados;
 };

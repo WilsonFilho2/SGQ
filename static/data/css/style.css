@@ -99,6 +99,27 @@ body {
         box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
     }
 
+.infos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .infos table {
+        width: 50%;
+        border: 1px solid black;
+    }
+
+    .infos .adicionais {
+        width: 50%;
+        display: flex;
+    }
+    
+        .infos .adicionais p {
+            width: 50%;
+        }
+
 @media (max-width: 1400px) and (max-height: 800px) {
     .canvas {
         position: relative;
