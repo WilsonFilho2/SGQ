@@ -5,19 +5,22 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 from . import models
-from .regressao import estimate_coef, plot_regression_line
+from .regressao import estimate_coef
+import numpy as np
 
 ##########################################################################################################################
 
-def k_real():
-    experimentos = models.Experimento.objects.all() # todos os experimentos
+def coefficients():
+    experimentos_x = np.fromiter((x.concentracao for x in models.Experimento.objects.all()), dtype=int) # lsita conprensada só que em array
+    experimentos_y = np.fromiter((y.temperatura for y in models.Experimento.objects.all()), dtype=int)
+    
+    b = estimate_coef(experimentos_x, experimentos_y) # Necessita de uma array
+
+    return b
     
 
-def calc_experimento(request) -> list:
-    experimentos = list()
-    for experimento in models.Experimento.objects.all():
-        temporario = [experimento.concentracao, experimento.temperatura]
-        experimentos.append(temporario[:])
+def experiments() -> list:
+    experimentos = [[experimento.concentracao,experimento.temperatura] for experimento in models.Experimento.objects.all()]
 
     return experimentos
 
@@ -26,21 +29,25 @@ def calc_experimento(request) -> list:
 
 # Create your views here.
 def index(request):
-    experimentos = calc_experimento(request)
+    experimentos = experiments()
+    coefs = coefficients()
+
+    print(coefs)
 
     if request.user.is_authenticated:
         return render(request, 'data/index.html', {
             'login': True,
             'experimentos': experimentos,
+            'coeficientes': coefs
         })
     
     return render(request, 'data/index.html', {
         'login': False,
         'experimentos': experimentos,
+        'coeficientes': coefs
     })
 
 def login(request):
-
     if request.method == 'POST':
         username = request.POST.get('name')
         password = request.POST.get('password')
@@ -50,7 +57,6 @@ def login(request):
 
         if user:
             django_login(request, user)
-            login = True
             return HttpResponseRedirect(reverse('index'))
         
         else:
